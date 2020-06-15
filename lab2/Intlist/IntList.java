@@ -100,14 +100,17 @@ public class IntList {
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
     public static IntList catenate(IntList A, IntList B) {
-        IntList temp_0 = new IntList(A.first, null);
-        IntList temp_1 = temp_0;
-        while (temp_0.rest != null)
+        IntList res = new IntList(A.first, null);
+        IntList ptr = res;
+        A = A.rest;
+        while (A != null)
         {
-            temp_0 = temp_0.rest;
+            ptr.rest = new IntList(A.first, null);
+            ptr = ptr.rest;
+            A = A.rest;
         }
-        temp_0.rest = B;
-        return temp_1;
+        ptr.rest = B;
+        return res;
     }
 
 
