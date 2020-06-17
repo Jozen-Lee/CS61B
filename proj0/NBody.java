@@ -27,7 +27,7 @@ public class NBody
         return planets;
     }
 
-    public static void Draw(String file, double radius)
+    private static void Draw(String file, double radius)
     {
         StdDraw.setScale(-radius, radius);
         StdDraw.clear();
