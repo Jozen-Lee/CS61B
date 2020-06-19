@@ -32,6 +32,7 @@ public class LinkedListDeque<T>
     {
         Node node = new Node(item, First, First.next);
         First.next = node;
+        First.next.next.prev = node;
         size ++;
     }
 
@@ -39,6 +40,7 @@ public class LinkedListDeque<T>
     {
         Node node = new Node(item, Last.prev, Last);
         Last.prev = node;
+        Last.prev.prev.next = node;
         size ++;
     }
 
