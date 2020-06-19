@@ -31,17 +31,17 @@ public class ArrayDeque<T>
         nextLast = 1;
     }
 
-    public int minusOne(int index)
+    private int minusOne(int index)
     {
         return Math.floorMod(index-1, items.length);
     }
 
-    public int plusOne(int index)
+    private int plusOne(int index)
     {
         return Math.floorMod(index+1, items.length);
     }
 
-    public int plusOne(int index, int length) {
+    private int plusOne(int index, int length) {
         return Math.floorMod(index + 1, length);
     }
 
@@ -103,7 +103,7 @@ public class ArrayDeque<T>
      * 返回items中最后一个元素
      * @return item[last]
      */
-    public T getlast()
+    private T getlast()
     {
         return items[minusOne(nextLast)];
     }
@@ -138,7 +138,7 @@ public class ArrayDeque<T>
      * 返回items中第一个元素
      * @return item[first]
      */
-    public T getFirst()
+    private T getFirst()
     {
         return items[plusOne(nextFirst)];
     }
