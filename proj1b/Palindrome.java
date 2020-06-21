@@ -1,3 +1,4 @@
+import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class Palindrome
@@ -10,7 +11,7 @@ public class Palindrome
      */
     public Deque<Character> wordToDeque(String word)
     {
-        Deque temp = new ArrayDeque<>();
+        Deque<Character> temp = new ArrayDeque<>();
         for(int i = 0; i < word.length(); i++)
         {
             temp.addLast(word.charAt(i));
@@ -25,7 +26,7 @@ public class Palindrome
      */
     public boolean isPalindrome(String word)
     {
-        Deque deque = wordToDeque(word); 
+        Deque<Character> deque = wordToDeque(word);
         return isPalindromeHelper(deque);
     }
 
@@ -36,8 +37,11 @@ public class Palindrome
      */
     private boolean isPalindromeHelper(Deque d)
     {
+        char first, last;
         if(d.size() <= 1) return true;
-        else if(d.removeFirst() != d.removeLast()) return false;
+        first =(char) d.removeFirst();
+        last = (char) d.removeLast();
+        if(Character.toLowerCase(first) != Character.toLowerCase(last)) return false;
         else return isPalindromeHelper(d);
     }
 
@@ -49,8 +53,11 @@ public class Palindrome
 
     private boolean isPalindromeHelper(Deque d, CharacterComparator cc)
     {
+        char first, last;
         if(d.size() <= 1) return true;
-        else if(!cc.equalChars((char)d.removeFirst(), (char)d.removeLast())) return false;
+        first =Character.toLowerCase((char)d.removeFirst());
+        last = Character.toLowerCase((char) d.removeLast());
+        if(!cc.equalChars(first, last)) return false;
         else return isPalindromeHelper(d, cc);
     }
 }
