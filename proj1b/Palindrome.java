@@ -25,8 +25,7 @@ public class Palindrome
      */
     public boolean isPalindrome(String word)
     {
-        Deque<E> deque = wordToDeque(word);
-        for(int i = 0; i < deque.size(); i++) deque[i] = Character.toLowerCase(deque[i]);
+        Deque deque = wordToDeque(word); 
         return isPalindromeHelper(deque);
     }
 
@@ -44,9 +43,8 @@ public class Palindrome
 
     public boolean isPalindrome(String word, CharacterComparator cc)
     {
-        Deque<E> deque1 = wordToDeque(word);
-        for(int i = 0; i < deque1.size(); i++) deque1[i] = Character.toLowerCase(deque1[i]);
-        return isPalindromeHelper(deque1, cc);
+        Deque deque = wordToDeque(word);
+        return isPalindromeHelper(deque, cc);
     }
 
     private boolean isPalindromeHelper(Deque d, CharacterComparator cc)
