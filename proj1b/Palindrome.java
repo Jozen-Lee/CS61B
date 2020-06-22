@@ -35,7 +35,9 @@ public class Palindrome
     private boolean isPalindromeHelper(Deque d)
     {
         if(d.size() <= 1) return true;
-        if(d.removeFirst() != d.removeLast()) return false;
+        char first = (char) d.removeFirst();
+        char last = (char) d.removeLast();
+        if(Character.toLowerCase(first)!= Character.toLowerCase(last)) return false;
         else return isPalindromeHelper(d);
     }
 
@@ -48,7 +50,9 @@ public class Palindrome
     private boolean isPalindromeHelper(Deque d, CharacterComparator cc)
     {
         if(d.size() <= 1) return true;
-        if(!cc.equalChars((char)d.removeFirst(), (char)d.removeLast())) return false;
+        char first = (char) d.removeFirst();
+        char last = (char) d.removeLast();
+        if(!cc.equalChars(Character.toLowerCase(first),Character.toLowerCase(last))) return false;
         else return isPalindromeHelper(d, cc);
     }
 }
