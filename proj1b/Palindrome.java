@@ -48,7 +48,7 @@ public class Palindrome
     private boolean isPalindromeHelper(Deque d, CharacterComparator cc)
     {
         if(d.size() <= 1) return true;
-        if(!cc.equalChars(d.removeFirst(), d.removeLast())) return false;
+        if(!cc.equalChars((char)d.removeFirst(), (char)d.removeLast())) return false;
         else return isPalindromeHelper(d, cc);
     }
 }
